@@ -1,19 +1,19 @@
 frontend/lib/
 ├── component/
-│   └── setting/                        # ปรับปรุง/สร้างคอมโพเนนต์ UI ของหน้า settings ใหม่ทั้งหมด
+│   └── setting/                        # New UI components for settings page (modular & maintainable)
 │
 ├── pages/
-│   ├── dashboard_pages.dart           # ปรับ UI และเชื่อมต่อกับ sidebar/header ใหม่
-│   ├── login_pages.dart               # ปรับ UI และการตรวจสอบผู้ใช้
-│   ├── profile_page.dart              # เพิ่มข้อมูลจาก Firebase / ปรับ layout
-│   └── settings_page.dart             # ยกเครื่องหน้า settings ด้วยระบบ shared_preferences และธีม
+│   ├── dashboard_pages.dart           # Improved layout, connected to updated sidebar and header
+│   ├── login_pages.dart               # Updated login UI & integrated with Firebase Auth
+│   ├── profile_page.dart              # User info integration with Firebase + layout polish
+│   └── settings_page.dart             # Redesigned settings with shared_preferences & clean sections
 │
 ├── provider/
-│   └── theme_provider.dart            # เพิ่ม dark/light mode ด้วย Provider
+│   └── theme_provider.dart            # Theme management using Provider (Light/Dark mode support)
 │
 ├── widgets/
 │   └── dashboard/
-│       ├── dashboard_header.dart      # ปรับปรุง layout + responsive
-│       └── dashboard_sidebar.dart     # เพิ่มการจัดการเมนูและเชื่อมกับ navigation
+│       ├── dashboard_header.dart      # Responsive header component, improved styling
+│       └── dashboard_sidebar.dart     # Sidebar with active item highlight & navigation logic
 │
-└── main.dart                          # ผูก Provider + Routing เข้ากับระบบใหม่
+└── main.dart                          # Integrated Provider, routing, and global theme setup
