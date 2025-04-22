@@ -1,19 +1,20 @@
 frontend/lib/
+│
 ├── component/
-│   └── setting/                        # New UI components for settings page (modular & maintainable)
+│   └── setting/                 # 🔧 UI Components for Settings (modular & reusable)
 │
 ├── pages/
-│   ├── dashboard_pages.dart           # Improved layout, connected to updated sidebar and header
-│   ├── login_pages.dart               # Updated login UI & integrated with Firebase Auth
-│   ├── profile_page.dart              # User info integration with Firebase + layout polish
-│   └── settings_page.dart             # Redesigned settings with shared_preferences & clean sections
+│   ├── dashboard_pages.dart     # 📊 Main Dashboard UI + layout improvements
+│   ├── login_pages.dart         # 🔐 Firebase Auth integrated login page
+│   ├── profile_page.dart        # 👤 User profile + editable details
+│   └── settings_page.dart       # ⚙️ Redesigned Settings UI with SharedPreferences
 │
 ├── provider/
-│   └── theme_provider.dart            # Theme management using Provider (Light/Dark mode support)
+│   └── theme_provider.dart      # 🎨 Theme Provider (Light/Dark Mode support)
 │
 ├── widgets/
 │   └── dashboard/
-│       ├── dashboard_header.dart      # Responsive header component, improved styling
-│       └── dashboard_sidebar.dart     # Sidebar with active item highlight & navigation logic
+│       ├── dashboard_header.dart   # 🧭 Top bar for dashboard navigation
+│       └── dashboard_sidebar.dart  # 📚 Sidebar with routing & selection states
 │
-└── main.dart                          # Integrated Provider, routing, and global theme setup
+└── main.dart                    # 🚀 App entry point + routes + theme setup
