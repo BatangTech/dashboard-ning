@@ -6,6 +6,7 @@ import 'package:nurse_system/components/login/login_button.dart';
 import 'package:nurse_system/components/login/login_footer.dart';
 import 'package:nurse_system/components/login/login_header.dart';
 import 'package:nurse_system/constants/styles.dart';
+import 'package:nurse_system/pages/reset_password.dart';
 import 'package:nurse_system/services/auth_service.dart';
 import 'package:nurse_system/services/log_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,6 +33,14 @@ class _LoginPageState extends State<LoginPage> {
     _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  // นำทางไปยังหน้ารีเซ็ตรหัสผ่าน
+  void _navigateToResetPassword() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ResetPasswordPage()),
+    );
   }
 
   Future<void> _handleLogin() async {
@@ -243,8 +252,51 @@ class _LoginPageState extends State<LoginPage> {
                       LoginButton(
                         onPressed: _handleLogin,
                         isLoading: _isLoading,
+                        text: 'เข้าสู่ระบบ',
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 16),
+                      // เพิ่มปุ่มลืมรหัสผ่าน
+                      // แทนที่ TextButton เดิมด้วยโค้ดนี้
+                      Container(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: _navigateToResetPassword,
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              side: BorderSide(
+                                  color:
+                                      AppStyles.primaryColor.withOpacity(0.3),
+                                  width: 1),
+                            ),
+                            backgroundColor: isDarkMode
+                                ? AppStyles.primaryColor.withOpacity(0.05)
+                                : AppStyles.primaryColor.withOpacity(0.08),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.lock_open_rounded,
+                                size: 18,
+                                color: AppStyles.primaryColor,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'ลืมรหัสผ่าน?',
+                                style: GoogleFonts.prompt(
+                                  fontSize: 14,
+                                  color: AppStyles.primaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       LoginFooter(textColor: textColor),
                     ],
                   ),
